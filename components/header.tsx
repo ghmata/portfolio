@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
+  { href: "#vaultis", label: "Vaultis" },
   { href: "#projetos", label: "Projetos" },
   { href: "#servicos", label: "Serviços" },
-  { href: "#sobre", label: "Sobre" },
   { href: "#contato", label: "Contato" },
 ]
 
@@ -44,7 +44,7 @@ export function Header() {
               >
                 <a
                   href={link.href}
-                  className="text-[#94a3b8] hover:text-white transition-colors duration-300 text-sm font-medium"
+                  className="text-[#94a3b8] hover:text-white transition-colors duration-300 text-sm font-medium nav-hover"
                 >
                   {link.label}
                 </a>
@@ -53,15 +53,15 @@ export function Header() {
           </motion.ul>
 
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="hidden md:block">
-            <Button asChild className="bg-[#00ff88] text-[#0a0e27] hover:bg-[#00ff88]/90 font-semibold neon-glow">
-              <a href="#contato">Fale Comigo</a>
+            <Button asChild className="bg-[#00ff88] text-[#0a0e27] hover:bg-[#00ff88]/90 font-semibold neon-glow button-hover">
+              <a href="https://wa.me/5519971254384?text=Olá! Vi seu portfólio">Fale Comigo</a>
             </Button>
           </motion.div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white p-2"
+            className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
             aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -83,15 +83,15 @@ export function Header() {
                     <a
                       href={link.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="block text-[#94a3b8] hover:text-white transition-colors duration-300 text-sm font-medium"
+                      className="block text-[#94a3b8] hover:text-white transition-colors duration-300 text-sm font-medium py-2"
                     >
                       {link.label}
                     </a>
                   </li>
                 ))}
                 <li>
-                  <Button asChild className="w-full bg-[#00ff88] text-[#0a0e27] hover:bg-[#00ff88]/90 font-semibold">
-                    <a href="#contato">Fale Comigo</a>
+                  <Button asChild className="w-full bg-[#00ff88] text-[#0a0e27] hover:bg-[#00ff88]/90 font-semibold button-hover">
+                    <a href="https://wa.me/5519971254384?text=Olá! Vi seu portfólio">Fale Comigo</a>
                   </Button>
                 </li>
               </ul>

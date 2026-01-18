@@ -14,9 +14,9 @@ const projects = [
     client: null,
     description: "Controle total do seu estoque com dashboard visual, chat entre setores e relatórios automáticos. Para saber mais, clique em Detalhes.",
     fullDescription: "Sistema completo de gestão de materiais com dashboard interativo para visualização de estoques, chat interno para comunicação entre setores, e exportação automática de relatórios em PDF e Excel. Interface moderna com gráficos em tempo real.",
-    image: "/charec-main.jpg",
-    imagePosition: "center center",
-    imageType: "mobile",
+    image: "/images/Stockflow_4.png",
+    imagePosition: "center 15%",
+    imageType: "desktop",
     technologies: ["Python", "Flask", "SQLAlchemy", "Chart.js", "Bootstrap"],
     features: ["Dashboard em tempo real", "Chat interno", "Exportação PDF/Excel", "Controle de estoque", "Relatórios automáticos"],
     status: "Em produção",
@@ -57,8 +57,8 @@ const projects = [
     description: "Importe PDFs, sincronize com Google Sheets e confira cargas em tempo real com sua equipe. Para saber mais, clique em Detalhes.",
     fullDescription: "Sistema de conferência de manifestos de carga com importação automática de PDFs, sincronização com Google Sheets e controle de acesso por níveis. Permite conferência em tempo real com múltiplos usuários.",
     image: "/cargosync-main.jpg",
-    imagePosition: "center center",
-    imageType: "mobile",
+    imagePosition: "center 20%",
+    imageType: "desktop",
     technologies: ["Flask", "Google Sheets API", "PyPDF2", "SQLAlchemy", "JWT"],
     features: ["Importação de PDFs", "Sync Google Sheets", "Multi-usuário", "Níveis de acesso", "Conferência em tempo real"],
     status: "Em produção",
@@ -246,14 +246,14 @@ export function ProjectsCarousel() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -100 }}
                   transition={{ duration: 0.5 }}
-                  className="glass rounded-2xl overflow-hidden"
+                  className="glass rounded-2xl overflow-hidden card-hover"
                 >
                   <div className="grid md:grid-cols-2 gap-0">
-                    <div className="relative h-64 md:h-96 overflow-hidden bg-[#0a0e27]">
+                    <div className={`relative ${(projects[currentIndex].id === 1 || projects[currentIndex].id === 4) ? 'h-56 md:h-80' : 'h-64 md:h-96'} overflow-hidden bg-[#0a0e27]`}>
                       <img
                         src={projects[currentIndex].image || "/placeholder.svg"}
                         alt={projects[currentIndex].name}
-                        className={`w-full h-full ${projects[currentIndex].imageType === 'mobile' ? 'object-contain scale-125' : 'object-cover'}`}
+                        className={`w-full h-full ${projects[currentIndex].imageType === 'mobile' ? 'object-contain' : 'object-cover'}`}
                         style={{ objectPosition: projects[currentIndex].imagePosition }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0a0e27]/80 md:block hidden" />

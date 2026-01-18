@@ -1,5 +1,6 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
+import { VaultisShowcase } from "@/components/vaultis-showcase"
 import { ProjectsCarousel } from "@/components/projects-carousel"
 import { SocialProof } from "@/components/social-proof"
 import { ServicesGrid } from "@/components/services-grid"
@@ -13,6 +14,7 @@ export default function Home() {
     <main className="min-h-screen grid-pattern">
       <Header />
       <HeroSection />
+      <VaultisShowcase />
       <ProjectsCarousel />
       <SocialProof />
       <ServicesGrid />

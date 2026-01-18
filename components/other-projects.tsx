@@ -229,7 +229,7 @@ export function OtherProjects() {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.03 }}
                 onClick={() => openModal(project)}
-                className="glass rounded-xl overflow-hidden cursor-pointer group"
+                className="glass rounded-xl overflow-hidden cursor-pointer group card-hover"
               >
                 <div className="relative h-48 overflow-hidden bg-[#0a0e27] flex items-center justify-center">
                   {project.isMobile ? (

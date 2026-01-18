@@ -8,6 +8,8 @@ import { OtherProjects } from "@/components/other-projects"
 import { AboutSection } from "@/components/about-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
+import { FloatingWhatsAppButton } from "@/components/floating-whatsapp-button"
+
 
 export default function Home() {
   return (
@@ -22,6 +24,8 @@ export default function Home() {
       <AboutSection />
       <CTASection />
       <Footer />
+      <FloatingWhatsAppButton />
     </main>
   )
 }
+

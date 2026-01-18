@@ -59,13 +59,9 @@ export function HeroSection() {
               transition={{ delay: 0.3 }}
               className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
             >
-              <Button
-                asChild
-                size="lg"
-                className="bg-[#00ff88] text-[#0a0e1a] hover:bg-[#00ff88]/90 font-semibold text-base px-8 py-6 h-auto shadow-lg shadow-[#00ff88]/20"
-              >
-                <a href="https://wa.me/5519971254384?text=Olá! Vi seu portfólio e quero automatizar">
-                  Falar no WhatsApp
+              <Button size="lg" className="group">
+                <a href="https://wa.me/5561983073229?text=Olá! Vi seu portfólio e quero automatizar">
+                  Fale Comigo WhatsApp
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>

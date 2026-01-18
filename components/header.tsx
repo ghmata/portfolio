@@ -53,8 +53,8 @@ export function Header() {
           </motion.ul>
 
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="hidden md:block">
-            <Button asChild className="bg-[#00ff88] text-[#0a0e27] hover:bg-[#00ff88]/90 font-semibold neon-glow button-hover">
-              <a href="https://wa.me/5519971254384?text=Olá! Vi seu portfólio">Fale Comigo</a>
+            <Button size="sm" className="hidden md:flex items-center gap-2">
+              <a href="https://wa.me/5561983073229?text=Olá! Vi seu portfólio">Fale Comigo</a>
             </Button>
           </motion.div>
 
@@ -90,9 +90,9 @@ export function Header() {
                   </li>
                 ))}
                 <li>
-                  <Button asChild className="w-full bg-[#00ff88] text-[#0a0e27] hover:bg-[#00ff88]/90 font-semibold button-hover">
-                    <a href="https://wa.me/5519971254384?text=Olá! Vi seu portfólio">Fale Comigo</a>
-                  </Button>
+                  <Button className="w-full">
+                    <a href="https://wa.me/5561983073229?text=Olá! Vi seu portfólio">Fale Comigo</a>
+                </Button>
                 </li>
               </ul>
             </motion.div>

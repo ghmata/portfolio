@@ -242,10 +242,13 @@ export function ProjectsCarousel() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
-                  initial={{ opacity: 0, x: 100 }}
+                  initial={{ opacity: 0, x: 60 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ duration: 0.5 }}
+                  exit={{ opacity: 0, x: -60 }}
+                  transition={{ 
+                    duration: 0.4, 
+                    ease: [0.25, 0.1, 0.25, 1.0]
+                  }}
                   className="glass rounded-2xl overflow-hidden card-hover"
                 >
                   <div className="grid md:grid-cols-2 gap-0">

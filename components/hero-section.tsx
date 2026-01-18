@@ -19,7 +19,7 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
           
           {/* Coluna Esquerda - Texto */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-center lg:text-left">
             {/* Tag pequena e discreta */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -35,7 +35,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight"
             >
               Automações que{" "}
               <span className="text-[#00ff88]">eliminam 15h</span>{" "}
@@ -47,7 +47,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-[#94a3b8] max-w-xl leading-relaxed"
+              className="text-xl text-[#94a3b8] max-w-xl leading-relaxed mx-auto lg:mx-0"
             >
               Python + IA para transformar processos caóticos em sistemas que rodam sozinhos.
             </motion.p>
@@ -57,15 +57,8 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
+              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-6"
             >
-              <Button size="lg" className="group">
-                <a href="https://wa.me/5561983073229?text=Olá! Vi seu portfólio e quero automatizar">
-                  Fale Comigo WhatsApp
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-
               {/* Prova social inline minimalista */}
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex flex-col">
@@ -85,7 +78,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="flex items-center gap-3 pt-4"
+              className="flex items-center gap-3 pt-4 justify-center lg:justify-start flex-wrap"
             >
               <span className="text-xs text-[#64748b] uppercase tracking-wide">Stack</span>
               {["Python", "React", "PostgreSQL", "AI/ML"].map((tech) => (

@@ -10,22 +10,22 @@ import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 import { FloatingWhatsAppButton } from "@/components/floating-whatsapp-button"
 
-
 export default function Home() {
   return (
-    <main className="min-h-screen grid-pattern">
-      <Header />
-      <HeroSection />
-      <VaultisShowcase />
-      <ProjectsCarousel />
-      <SocialProof />
-      <ServicesGrid />
-      <OtherProjects />
-      <AboutSection />
-      <CTASection />
-      <Footer />
+    <>
+      <main className="min-h-screen grid-pattern">
+        <Header />
+        <HeroSection />
+        <VaultisShowcase />
+        <ProjectsCarousel />
+        <SocialProof />
+        <ServicesGrid />
+        <OtherProjects />
+        <AboutSection />
+        <CTASection />
+        <Footer />
+      </main>
       <FloatingWhatsAppButton />
-    </main>
+    </>
   )
 }
-

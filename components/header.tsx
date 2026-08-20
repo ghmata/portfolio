@@ -1,103 +1,116 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react"
+import { Menu, X, ArrowUpRight } from "lucide-react"
 
 const navLinks = [
-  { href: "#inicio", label: "Início" },
-  { href: "#vaultis", label: "Vaultis" },
   { href: "#projetos", label: "Projetos" },
-  { href: "#servicos", label: "Serviços" },
+  { href: "#destaques", label: "Casos de Estudo" },
+  { href: "#capacidades", label: "Capacidades" },
+  { href: "#sobre", label: "Sobre" },
   { href: "#contato", label: "Contato" },
 ]
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass">
-      <div className="container mx-auto px-4 py-4">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        scrolled ? "bg-[#08090b]/90 backdrop-blur-md border-b border-white/[0.08] py-4" : "bg-transparent py-6"
+      }`}
+    >
+      <div className="container mx-auto px-6 max-w-6xl">
         <nav className="flex items-center justify-between">
-          <motion.a
+          {/* Brand */}
+          <a
             href="#inicio"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="text-xl font-bold text-white"
+            className="flex items-center gap-2.5 group focus:outline-none"
           >
-            GH
-          </motion.a>
+            <span className="font-mono text-sm font-semibold text-white tracking-tight group-hover:text-[#10b981] transition-colors">
+              gabriel.mata
+            </span>
+            <span className="font-mono text-xs text-[#64748b]">/</span>
+            <span className="font-mono text-xs text-[#64748b] hidden sm:inline">
+              software & ia
+            </span>
+          </a>
 
-          {/* Desktop Navigation */}
-          <motion.ul
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="hidden md:flex items-center gap-8"
-          >
-            {navLinks.map((link, index) => (
-              <motion.li
-                key={link.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <a
-                  href={link.href}
-                  className="text-[#94a3b8] hover:text-white transition-colors duration-300 text-sm font-medium nav-hover"
-                >
-                  {link.label}
-                </a>
-              </motion.li>
-            ))}
-          </motion.ul>
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-8">
+            <ul className="flex items-center gap-6">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-xs font-mono text-[#9ca3af] hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
 
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="hidden md:block">
-            <Button size="sm" className="hidden md:flex items-center gap-2">
-              <a href="https://wa.me/5561983073229?text=Olá! Vi seu portfólio">Fale Comigo</a>
-            </Button>
-          </motion.div>
+            <a
+              href="https://wa.me/553182722278?text=Olá%20Gabriel!%20Vim%20pelo%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-[#10b981] hover:text-[#34d399] transition-colors"
+            >
+              <span>whatsapp</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+            className="md:hidden text-[#9ca3af] hover:text-white p-1"
             aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </nav>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden"
-            >
-              <ul className="py-4 space-y-4">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block text-[#94a3b8] hover:text-white transition-colors duration-300 text-sm font-medium py-2"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-                <li>
-                  <Button className="w-full">
-                    <a href="https://wa.me/5561983073229?text=Olá! Vi seu portfólio">Fale Comigo</a>
-                </Button>
+        {/* Mobile Navigation Drawer */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 p-6 rounded-xl bg-[#101216] border border-white/10 space-y-4">
+            <ul className="space-y-3">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-sm font-mono text-[#9ca3af] hover:text-white py-1 transition-colors"
+                  >
+                    {link.label}
+                  </a>
                 </li>
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              ))}
+            </ul>
+
+            <div className="pt-4 border-t border-white/[0.08]">
+              <a
+                href="https://wa.me/553182722278?text=Olá%20Gabriel!%20Vim%20pelo%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between text-xs font-mono text-[#10b981] py-2"
+              >
+                <span>Falar no WhatsApp</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   )

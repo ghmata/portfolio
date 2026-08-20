@@ -74,7 +74,7 @@ export function FloatingWhatsAppButton() {
   if (!isMobile) {
     return (
       <a
-        href="https://wa.me/5561983073229?text=Olá! Vi seu portfólio e quero conversar"
+        href="https://wa.me/553182722278?text=Olá! Vi seu portfólio e quero conversar"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-[9999] group"
@@ -103,7 +103,7 @@ export function FloatingWhatsAppButton() {
   return (
     <a
       ref={buttonRef}
-      href="https://wa.me/5561983073229?text=Olá! Vi seu portfólio e quero conversar"
+      href="https://wa.me/553182722278?text=Olá! Vi seu portfólio e quero conversar"
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}

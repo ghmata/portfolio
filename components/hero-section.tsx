@@ -1,126 +1,117 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
+import { ArrowDownRight, ArrowUpRight } from "lucide-react"
+
+const featuredIndex = [
+  {
+    num: "01",
+    name: "Solarys Digital",
+    type: "SaaS Multi-Tenant",
+    desc: "Energia solar, billing Stripe e cálculo INPE/CRESESB",
+    href: "#solarys",
+  },
+  {
+    num: "02",
+    name: "Vaultis",
+    type: "OCR & Visão Computacional",
+    desc: "Auditoria financeira e extração via WhatsApp",
+    href: "#vaultis",
+  },
+  {
+    num: "03",
+    name: "DocMind AI",
+    type: "Inteligência Documental",
+    desc: "Análise contratual e sumários com Google Gemini",
+    href: "#projetos",
+  },
+  {
+    num: "04",
+    name: "CargoSync FAB",
+    type: "Logística Militar",
+    desc: "Conferência de manifestos para a Força Aérea Brasileira",
+    href: "#projetos",
+  },
+]
 
 export function HeroSection() {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-[#0a0e1a]">
-      {/* Background minimalista - grid sutil */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
-      
-      {/* Gradient accent sutil no canto */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#00ff88]/5 rounded-full blur-3xl" />
-
-      <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
-        {/* Layout assimétrico 60/40 */}
-        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
-          
-          {/* Coluna Esquerda - Texto */}
-          <div className="space-y-8 text-center lg:text-left">
-            {/* Tag pequena e discreta */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 text-sm text-[#00ff88] font-medium"
-            >
-              <span className="w-2 h-2 rounded-full bg-[#00ff88]" />
-              Disponível para novos projetos
-            </motion.div>
-
-            {/* Headline BOLD - tipografia diferenciada */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight"
-            >
-              Automações que{" "}
-              <span className="text-[#00ff88]">eliminam 15h</span>{" "}
-              de trabalho manual toda semana
-            </motion.h1>
-
-            {/* Subheadline limpo */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-[#94a3b8] max-w-xl leading-relaxed mx-auto lg:mx-0"
-            >
-              Python + IA para transformar processos caóticos em sistemas que rodam sozinhos.
-            </motion.p>
-
-            {/* CTAs + Prova social inline */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-6"
-            >
-              {/* Prova social inline minimalista */}
-              <div className="flex items-center gap-6 text-sm">
-                <div className="flex flex-col">
-                  <span className="text-2xl font-bold text-white">95%</span>
-                  <span className="text-[#64748b]">precisão IA</span>
-                </div>
-                <div className="w-px h-10 bg-[#64748b]/20" />
-                <div className="flex flex-col">
-                  <span className="text-2xl font-bold text-white">R$50k+</span>
-                  <span className="text-[#64748b]">economizados</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Mini stack badges - discretos */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="flex items-center gap-3 pt-4 justify-center lg:justify-start flex-wrap"
-            >
-              <span className="text-xs text-[#64748b] uppercase tracking-wide">Stack</span>
-              {["Python", "React", "PostgreSQL", "AI/ML"].map((tech) => (
-                <span key={tech} className="text-xs text-[#94a3b8] px-2 py-1 rounded bg-white/5">
-                  {tech}
-                </span>
-              ))}
-            </motion.div>
+    <section id="inicio" className="pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-44 md:pb-28 px-4 sm:px-6 relative">
+      <div className="container mx-auto max-w-6xl">
+        <div className="space-y-8 sm:space-y-12">
+          {/* Micro Locator */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-[#64748b] tracking-wider uppercase">
+            <span>Gabriel Hipólito</span>
+            <span>—</span>
+            <span>Brasília, Brasil</span>
+            <span>—</span>
+            <span className="text-[#10b981]">Fullstack & IA</span>
           </div>
 
-          {/* Coluna Direita - Visual (Screenshot) */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="relative lg:block hidden"
-          >
-            {/* Container com perspective para efeito 3D sutil */}
-            <div className="relative rounded-2xl overflow-hidden border border-[#00ff88]/20 shadow-2xl shadow-[#00ff88]/10 transform hover:scale-[1.02] transition-transform duration-500">
-              <Image
-                src="/images/Vaulti_1.png"
-                alt="Dashboard Vaultis - Sistema de Gestão Financeira"
-                width={700}
-                height={500}
-                className="w-full"
-                priority
-              />
-              
-              {/* Badge flutuante com métrica */}
-              <div className="absolute bottom-6 left-6 bg-[#0a0e1a]/90 backdrop-blur-sm border border-[#00ff88]/30 rounded-lg px-4 py-3 flex items-center gap-3">
-                <div className="w-3 h-3 rounded-full bg-[#00ff88] animate-pulse" />
-                <div>
-                  <div className="text-white font-semibold text-sm">Em produção</div>
-                  <div className="text-[#64748b] text-xs">Processando dados reais</div>
-                </div>
-              </div>
+          {/* Editorial Headline */}
+          <div className="max-w-4xl space-y-4 sm:space-y-6">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.12] sm:leading-[1.08] text-balance">
+              Desenvolvo sistemas web de alta complexidade e automações com inteligência artificial.
+            </h1>
+
+            <p className="text-base sm:text-lg md:text-xl text-[#9ca3af] leading-relaxed max-w-2xl text-balance">
+              Especialista em construir soluções de ponta a ponta: plataformas SaaS multi-tenant com faturamento automatizado, esteiras de visão computacional (OCR) para triagem de documentos e aplicações de missão crítica.
+            </p>
+          </div>
+
+          {/* Action Links / Touch-Friendly Mobile CTAs */}
+          <div className="flex flex-col w-full sm:flex-row sm:w-auto items-stretch sm:items-center gap-3 sm:gap-6 pt-2 text-sm font-mono">
+            <a
+              href="#destaques"
+              className="w-full sm:w-auto min-h-[48px] justify-center inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white text-[#08090b] font-semibold hover:bg-[#10b981] transition-colors"
+            >
+              <span>Ver Casos de Estudo</span>
+              <ArrowDownRight className="w-4 h-4" />
+            </a>
+
+            <a
+              href="https://wa.me/553182722278?text=Olá%20Gabriel!%20Vim%20pelo%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto min-h-[48px] justify-center inline-flex items-center gap-1.5 text-[#9ca3af] hover:text-white transition-colors bg-white/[0.04] sm:bg-transparent border border-white/10 sm:border-0 rounded-lg sm:rounded-none px-4 py-3 sm:p-0"
+            >
+              <span>Falar diretamente no WhatsApp</span>
+              <ArrowUpRight className="w-4 h-4 text-[#10b981]" />
+            </a>
+          </div>
+
+          {/* Fast Index Table of Featured Works (Editorial Blueprint) */}
+          <div className="pt-8 sm:pt-12 border-t border-white/[0.08]">
+            <div className="text-xs font-mono text-[#64748b] uppercase tracking-wider mb-4 sm:mb-6">
+              // Projetos Selecionados
             </div>
 
-            {/* Glow decorativo */}
-            <div className="absolute -bottom-10 -right-10 w-72 h-72 bg-[#00ff88]/10 rounded-full blur-3xl -z-10" />
-          </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+              {featuredIndex.map((item) => (
+                <a
+                  key={item.num}
+                  href={item.href}
+                  className="group p-4 rounded-xl bg-[#101216]/60 hover:bg-[#14171d] border border-white/[0.06] hover:border-white/20 transition-all duration-200 flex flex-col justify-between"
+                >
+                  <div className="flex items-center justify-between text-xs font-mono text-[#64748b] mb-3">
+                    <span>[{item.num}]</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#64748b] group-hover:text-[#10b981] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  </div>
 
+                  <div>
+                    <h2 className="text-sm font-semibold text-white group-hover:text-[#10b981] transition-colors">
+                      {item.name}
+                    </h2>
+                    <span className="font-mono text-[11px] text-[#10b981] block mt-0.5">
+                      {item.type}
+                    </span>
+                    <p className="text-xs text-[#64748b] mt-2 leading-relaxed line-clamp-2">
+                      {item.desc}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -10,14 +10,14 @@ const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono"
 
 export const metadata: Metadata = {
   title: "Gabriel Mata | Desenvolvedor de Automações & Sistemas Web com IA",
-  description: "Especialista em automações Python, sistemas web full-stack e IA. Projetos reais para empresas. Ex-FAB.",
+  description: "Especialista em automações Python, sistemas web full-stack e IA. Projetos reais para empresas e Força Aérea Brasileira (FAB).",
   generator: "Next.js",
   keywords: ["automações", "sistemas web", "IA", "Python", "Next.js", "React", "FastAPI", "desenvolvedor"],
   authors: [{ name: "Gabriel Mata" }],
   openGraph: {
     title: "Gabriel Mata | Desenvolvedor de Automações & Sistemas Web com IA",
     description:
-      "Especialista em automações Python, sistemas web full-stack e IA. Projetos reais para empresas. Ex-FAB.",
+      "Especialista em automações Python, sistemas web full-stack e IA. Projetos reais para empresas e Força Aérea Brasileira (FAB).",
     url: "https://gabrielmata.dev",
     siteName: "Gabriel Mata",
     locale: "pt_BR",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gabriel Mata | Desenvolvedor de Automações & Sistemas Web com IA",
     description:
-      "Especialista em automações Python, sistemas web full-stack e IA. Projetos reais para empresas. Ex-FAB.",
+      "Especialista em automações Python, sistemas web full-stack e IA. Projetos reais para empresas e Força Aérea Brasileira (FAB).",
   },
   robots: {
     index: true,

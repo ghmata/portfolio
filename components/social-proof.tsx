@@ -4,9 +4,10 @@ import { useEffect, useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
 
 const stats = [
-  { value: 5, suffix: "+", label: "sistemas em produção" },
-  { value: 10000, suffix: "+", label: "requisições processadas" },
-  { value: 100, suffix: "%", label: "projetos entregues no prazo" },
+  { value: 12, suffix: "+", label: "Sistemas em Produção", detail: "Web, SaaS & Desktop" },
+  { value: 50, suffix: "k+", label: "Requisições & Docs/mês", detail: "Processamento via IA" },
+  { value: 100, suffix: "%", label: "Prazos Cumpridos", detail: "Rigor e previsibilidade" },
+  { value: 6, suffix: "", label: "Setores Atendidos", detail: "Solar, Finanças, Militar, etc." },
 ]
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
@@ -17,8 +18,8 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   useEffect(() => {
     if (!isInView) return
 
-    const duration = 2000
-    const steps = 60
+    const duration = 1500
+    const steps = 40
     const increment = value / steps
     let current = 0
 
@@ -36,39 +37,35 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   }, [isInView, value])
 
   return (
-    <span ref={ref} className="text-4xl md:text-5xl font-bold text-white">
+    <span ref={ref} className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
       {count.toLocaleString("pt-BR")}
-      {suffix}
+      <span className="text-[#10b981]">{suffix}</span>
     </span>
   )
 }
 
 export function SocialProof() {
   return (
-    <section className="py-20 px-4">
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass rounded-2xl p-8 md:p-12"
-        >
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+    <section className="py-16 px-4 sm:px-6 border-t border-white/[0.06] bg-[#0c0e12]/40">
+      <div className="container mx-auto max-w-6xl">
+        <div className="craft-card p-8 sm:p-10 rounded-2xl bg-[#101216]">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className="flex flex-col items-center"
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+                className="flex flex-col items-center text-center space-y-1"
               >
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                <span className="text-[#94a3b8] mt-2">{stat.label}</span>
+                <span className="text-sm font-semibold text-white mt-1">{stat.label}</span>
+                <span className="font-mono text-[11px] text-[#64748b]">{stat.detail}</span>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
